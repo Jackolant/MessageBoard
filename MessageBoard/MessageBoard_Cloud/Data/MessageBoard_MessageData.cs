@@ -26,5 +26,31 @@ namespace MessageBoard_Cloud.Data
                 return false;
             }
         }
+
+        public MessageBoard_Thread GetThreadByID(string id)
+        {
+            MessageBoard_Thread thread = null;
+            cache.TryGetValue(id, out thread);
+            return thread;
+        }
+
+        public bool UpdateThread(MessageBoard_Thread inputThread)
+        {
+            try
+            {
+                cache.Remove(inputThread.Id);
+                cache.Add(inputThread.Id, inputThread);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public Dictionary<string, MessageBoard_Thread> GetAllThreads()
+        {
+            return cache;
+        }
     }
 }
