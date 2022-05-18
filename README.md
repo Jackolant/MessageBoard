@@ -25,3 +25,7 @@ Time Logged
 -5/17 : Roughly 6 hours : Front End Work
 
 -5/18 : Roughly 3 hours : Finish Front End Work
+
+How to run
+1) First Build the MessageBoard Backend Project in the backgroud
+2) Then use "npm run dev" to run the MessageBoard_Front Project
