@@ -27,7 +27,7 @@ namespace MessageBoard_Cloud.Controllers
 
         [Route("SignUp")]
         [HttpPost]
-        public ActionResult<string> SignUp(MessageBoard_User input_user)
+        public ActionResult<string> SignUp([FromForm] MessageBoard_User input_user)
         {
             MessageBoard_User_Data user = userService.SignUp(input_user);
             if (user == null)
@@ -51,11 +51,11 @@ namespace MessageBoard_Cloud.Controllers
             return user;
         }
 
-        [Route("CreateThread/{userID}")]
+        [Route("CreateThread/{userID}/{name}")]
         [HttpPost]
-        public ActionResult<MessageBoard_Thread> CreateThread(string userID)
+        public ActionResult<MessageBoard_Thread> CreateThread(string userID, string name)
         {
-            MessageBoard_Thread thread = messageService.CreateMessageThread(userID);
+            MessageBoard_Thread thread = messageService.CreateMessageThread(userID, name);
             if (thread != null)
             {
                 return thread;
@@ -77,7 +77,7 @@ namespace MessageBoard_Cloud.Controllers
 
         [Route("AddMessage")]
         [HttpPost]
-        public ActionResult<MessageBoard_Thread> AddMessageToThread([FromBody] MessageBoard_Message_Input inputMessage)
+        public ActionResult<MessageBoard_Thread> AddMessageToThread([FromForm] MessageBoard_Message_Input inputMessage)
         {
             MessageBoard_Thread thread = messageService.AddMessageToThread(inputMessage);
             if (thread == null)

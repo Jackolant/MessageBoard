@@ -8,12 +8,15 @@
 
         public string owner { get; set; }
 
+        public string name { get; set; }
+
 
         public MessageBoard_Thread() { }
 
-        public MessageBoard_Thread(string input_owner)
+        public MessageBoard_Thread(string input_owner, string input_name)
         {
             owner = input_owner;
+            name = input_name;
         }
     }
 }

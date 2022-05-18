@@ -4,7 +4,7 @@ namespace MessageBoard_Cloud.Services.Interfaces
 {
     public interface MessageService
     {
-        MessageBoard_Thread CreateMessageThread(string userID);
+        MessageBoard_Thread CreateMessageThread(string userID, string name);
 
         MessageBoard_Thread GetMessageThreadByID(string id);
 

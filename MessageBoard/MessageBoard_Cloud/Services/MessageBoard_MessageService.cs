@@ -13,9 +13,9 @@ namespace MessageBoard_Cloud.Services
             messageData = _messageData;
         }
 
-        public MessageBoard_Thread CreateMessageThread(string userID)
+        public MessageBoard_Thread CreateMessageThread(string userID, string name)
         {
-            MessageBoard_Thread thread = new MessageBoard_Thread(userID);
+            MessageBoard_Thread thread = new MessageBoard_Thread(userID, name);
             if (messageData.CreateThread(thread))
             {
                 return thread;
